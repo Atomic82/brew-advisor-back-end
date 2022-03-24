@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
 
-const reviewSchema = new mongoose.Schema({
+const Schema = mongoose.Schema
+
+const reviewSchema = new Schema({
   owner: {type: Schema.Types.ObjectId, ref: "Profile"},
   comment: {type: String, required: true},
   /** breweryName: [brewerySchema], required: true

@@ -1,6 +1,8 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose from 'mongoose'
 
-const eventSchema = new mongoose.Schema({
+const Schema = mongoose.Schema
+
+const eventSchema = new Schema({
   owner: {type: Schema.Types.ObjectId, ref: "Profile"},
   timeDate: {type: String, required: true},
   confirmedGuests: {type: Schema.Types.ObjectId, ref: "Profile"},
