@@ -2,19 +2,19 @@ import { Event } from '../models/event.js';
 import { Review } from '../models/review.js'
 
 function index(req, res) {
-  Event.find({})
-    .populate('owner', 'confirmedGuests', 'reviews',) //'brewery')
-    .then(events => {
-      res.json(events)
-    })
-    .catch(err => {
-      res.json(err)
-    })
+  // Event.find({})
+  //   .populate('owner', 'confirmedGuests', 'reviews',) //'brewery')
+  //   .then(events => {
+  //     res.json(events)
+  //   })
+  //   .catch(err => {
+  //     res.json(err)
+  //   })
 }
 
 function create(req, res) {
-  req.body.owner = req.user.profile
   console.log(req.body)
+  req.body.owner = req.user.profile
   Event.create(req.body)
     .then(event => {
       event.populate('owner',) //'brewery')
@@ -43,11 +43,6 @@ function update(req, res) {
 function deleteEvent(req, res) {
   console.log("Delete this event")
 }
-
-// Delete
-// Create
-// Update
-// Show
 
 export {
   index,
