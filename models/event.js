@@ -2,6 +2,19 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
+const eventCommentSchema = new Schema ({
+  owner: [{
+    type: Schema.Types.ObjectId, 
+    ref: "Profile"
+  }],
+  comment: {
+    type: String,
+    required: true
+  }
+}, {
+  timestamps: true
+})
+
 const eventSchema = new Schema({
   owner: [{
     type: Schema.Types.ObjectId, 
@@ -12,17 +25,14 @@ const eventSchema = new Schema({
     required: true
   },
   timeDate: {
-    type: String, 
+    type: Date, 
     required: true
   },
   confirmedGuests: [{
     type: Schema.Types.ObjectId, 
     ref: "Profile",
   }],
-  reviews: [{
-    type: Schema.Types.ObjectId, 
-    ref: "Review"
-  }],
+  comments: [eventCommentSchema],
   brewery: [{
     type: Schema.Types.ObjectId, 
     ref: "Brewery"
