@@ -7,6 +7,10 @@ const eventSchema = new Schema({
     type: Schema.Types.ObjectId, 
     ref: "Profile"
   }],
+  name: {
+    type: String,
+    required: true
+  },
   timeDate: {
     type: String, 
     required: true
