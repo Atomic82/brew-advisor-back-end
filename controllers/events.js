@@ -41,7 +41,9 @@ function update(req, res) {
 }
 
 function deleteEvent(req, res) {
-  console.log("Delete this event")
+  Event.findByIdAndDelete(req.params.id)
+  .then(event => res.json(event))
+  .catch(err => res.json(err))
 }
 
 export {
