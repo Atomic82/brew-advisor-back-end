@@ -7,13 +7,17 @@ const eventSchema = new Schema({
     type: Schema.Types.ObjectId, 
     ref: "Profile"
   }],
+  name: {
+    type: String,
+    required: true
+  },
   timeDate: {
     type: String, 
     required: true
   },
   confirmedGuests: [{
     type: Schema.Types.ObjectId, 
-    ref: "Profile"
+    ref: "Profile",
   }],
   reviews: [{
     type: Schema.Types.ObjectId, 
