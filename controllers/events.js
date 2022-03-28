@@ -2,14 +2,14 @@ import { Event } from '../models/event.js';
 import { Review } from '../models/review.js'
 
 function index(req, res) {
-  // Event.find({})
-  //   .populate('owner', 'confirmedGuests', 'reviews',) //'brewery')
-  //   .then(events => {
-  //     res.json(events)
-  //   })
-  //   .catch(err => {
-  //     res.json(err)
-  //   })
+  Event.find({})
+    .populate('owner', )//'confirmedGuests',) //'brewery')
+    .then(events => {
+      res.json(events)
+    })
+    .catch(err => {
+      res.json(err)
+    })
 }
 
 function create(req, res) {
