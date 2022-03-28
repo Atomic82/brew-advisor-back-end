@@ -13,7 +13,7 @@ const eventSchema = new Schema({
   },
   confirmedGuests: [{
     type: Schema.Types.ObjectId, 
-    ref: "Profile"
+    ref: "Profile",
   }],
   reviews: [{
     type: Schema.Types.ObjectId, 
