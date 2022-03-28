@@ -26,7 +26,9 @@ const brewerySchema = new Schema ({
   },
   image_url: {
     type: String,
-  }
+  },
+  reviews: [{ type: Schema.Types.ObjectId, 
+    ref: "Review" }]
 }, {
   timestamps: true,
 })
