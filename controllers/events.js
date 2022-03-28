@@ -33,11 +33,27 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  console.log("Show event details")
+  Event.findById(req.params.id)
+  .then(event => res.json(event))
+  .catch(err => res.json(err))
 }
 
 function update(req, res) {
-  console.log("Update this event")
+  Event.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then(event => {
+      event.populate('owner',) //'brewery')
+      .then(populatedEvent => {
+        res.status(201).json(populatedEvent)
+      })
+      .catch(err => {
+        console.log(err)
+        res.status(500).json(err)
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json(err)
+    })
 }
 
 function deleteEvent(req, res) {
