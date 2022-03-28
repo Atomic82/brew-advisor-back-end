@@ -3,7 +3,7 @@ import { Review } from '../models/review.js'
 
 function index(req, res) {
   Event.find({})
-    .populate('owner', 'confirmedGuests', 'reviews', 'brewery')
+    .populate('owner', 'confirmedGuests', 'reviews',) //'brewery')
     .then(events => {
       res.json(events)
     })
@@ -14,9 +14,10 @@ function index(req, res) {
 
 function create(req, res) {
   req.body.owner = req.user.profile
+  console.log(req.body)
   Event.create(req.body)
     .then(event => {
-      event.populate('owner', 'brewery')
+      event.populate('owner',) //'brewery')
       .then(populatedEvent => {
         res.status(201).json(populatedEvent)
       })
