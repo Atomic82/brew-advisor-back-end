@@ -8,11 +8,11 @@ const reviewSchema = new Schema({
   },
   comment: {
     type: String, 
-    required: true
+    // : true
   },
-  brewery: [{
-    type: Schema.Types.ObjectId, ref: "Brewery"
-  }]
+  brewery: {
+    type: String
+  }
 }, {
   timestamps: true
 })
