@@ -4,20 +4,20 @@ import { Brewery } from '../models/brewery.js'
 
 function index(req, res) {
   console.log("See these reviews")
-  // Review.find({})
-  // .populate("owner", "brewery")
-  // .then(reviews => {
-  //   res.json(reviews)
-  // })
-  // .catch(err => {
-  //   console.log(err)
-  //   res.status(500).json(err)
-  // })
+  Review.find({})
+  .populate("owner", "brewery")
+  .then(reviews => {
+    res.json(reviews)
+  })
+  .catch(err => {
+    console.log(err)
+    res.status(500).json(err)
+  })
 }
 
 function create (req, res) {
   req.body.owner = req.user.profile
-  req.body.brewery = req.brewery.name
+  req.body.brewery = req.brewery.id
   Review.create(req.body)
   console.log(req.body)
   .then(review => {
