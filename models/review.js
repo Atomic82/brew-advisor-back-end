@@ -10,9 +10,9 @@ const reviewSchema = new Schema({
     type: String, 
     // : true
   },
-  brewery: [{
-    type: Schema.Types.ObjectId, ref: "Brewery"
-  }]
+  brewery: {
+    type: String
+  }
 }, {
   timestamps: true
 })
