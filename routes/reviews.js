@@ -9,7 +9,7 @@ const router = Router()
 
 /** ---------- Protected Routes ---------- */
 router.use(decodeUserFromToken)
-router.post('/', checkAuth, reviewsCtrl.create)
+router.post('/:id', checkAuth, reviewsCtrl.create)
 
 
 export { router }
