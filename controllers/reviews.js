@@ -27,10 +27,10 @@ function create (req, res) {
       .populate("reviews")
       .then(profile => {
         if(profile.equals(finalReview.owner)){
-          console.log("profile: ", profile)
           profile.reviews.push(finalReview)
           profile.save()
           .then(populatedProfile => {
+            
             res.status(201).json(populatedProfile)
           })
           .catch(err => {
