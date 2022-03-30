@@ -24,6 +24,7 @@ function create (req, res) {
       Profile.findById(req.params.id)
       .then(profile => {
         if(profile.equals(finalReview.owner)){
+          profile.reviews.push(finalReview)
           profile.save()
           .then(populatedProfile => {
             res.status(201).json(populatedProfile)
