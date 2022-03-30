@@ -4,7 +4,8 @@ import * as apiCtrl from '../controllers/api.js'
 const router = Router()
 
 //API call to front to get breweries
-router.get('/', apiCtrl.getBreweries)
+router.get('/:id', apiCtrl.getSingleBrewery)
+router.post('/', apiCtrl.getBreweries)
 
 
 export { router }
