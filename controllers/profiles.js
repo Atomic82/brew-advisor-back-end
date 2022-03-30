@@ -11,9 +11,10 @@ function index(req, res) {
 
 function show(req, res) {
   Profile.findById(req.params.id)
+  .populate("reviews")
   .populate("favorites")
   .populate("events")
-  .populate("reviews")
+  console.log("A list of reviews: ", profile.reviews)
   .then(profile => res.json(profile))
   .catch(err => {
     console.log(err)
