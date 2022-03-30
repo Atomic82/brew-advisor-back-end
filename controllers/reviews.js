@@ -22,8 +22,10 @@ function create (req, res) {
     initialReview.populate("owner")
     .then(finalReview => {
       Profile.findById(req.params.id)
+      .populate("reviews")
       .then(profile => {
         if(profile.equals(finalReview.owner)){
+          
           profile.save()
           .then(populatedProfile => {
             res.status(201).json(populatedProfile)
