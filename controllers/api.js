@@ -4,8 +4,10 @@ const BEARER = process.env.API_BEARER
 
 function getBreweries(req, res){
   //search?term=brewery&location=${req.body}&radius=40000
+  //search?term=brewery&location=snellville&radius=40000
+  console.log(req.body)
 
-  return fetch(`${BASE_URL}/search?term=brewery&location=snellville&radius=40000`, {
+  return fetch(`${BASE_URL}/search?term=brewery&location=${req.body.location}&radius=40000`, {
     headers: {
       'Authorization': `Bearer ${BEARER}`
     },
