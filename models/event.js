@@ -33,10 +33,9 @@ const eventSchema = new Schema({
     ref: "Profile",
   }],
   comments: [eventCommentSchema],
-  brewery: [{
-    type: Schema.Types.ObjectId, 
-    ref: "Brewery"
-  }]
+  brewery: {
+    type: String, 
+  }
 }, {
   timestamps: true,
 })
