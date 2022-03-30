@@ -6,7 +6,6 @@ function getBreweries(req, res){
   //search?term=brewery&location=${req.body}&radius=40000
   //search?term=brewery&location=snellville&radius=40000
   console.log(req.body)
-
   return fetch(`${BASE_URL}/search?term=brewery&location=${req.body.location}&radius=40000`, {
     headers: {
       'Authorization': `Bearer ${BEARER}`
@@ -18,7 +17,8 @@ function getBreweries(req, res){
 }
 
 function getSingleBrewery(req, res){
-  const brewery_id = req.body.brewery_id
+  const brewery_id = req.body.id
+  console.log('mic check')
   return fetch(`${BASE_URL}/${brewery_id}`, {
     headers: {
       'Authorization': `Bearer ${BEARER}`
