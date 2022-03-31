@@ -1,9 +1,8 @@
 import { Review } from '../models/review.js'
 import { Profile } from '../models/profile.js'
-import { Brewery } from '../models/brewery.js'
+
 
 function index(req, res) {
-  console.log("See these reviews")
   Review.find({})
   .populate("owner", "brewery")
   .then(reviews => {
