@@ -35,6 +35,9 @@ const eventSchema = new Schema({
   comments: [eventCommentSchema],
   brewery: {
     type: Object, 
+  },
+  description: {
+    type: String,
   }
 }, {
   timestamps: true,
