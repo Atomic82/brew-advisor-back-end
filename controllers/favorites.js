@@ -6,6 +6,7 @@ function create(req, res) {
         .then(favorite => {
             favorite.populate("owner")
             favorite.populate("brewery")
+            favorite.populate("favorites")
                 .then(populateFavorite => {
                     res.status(201).json(populatedFavorite)
                 })

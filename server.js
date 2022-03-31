@@ -8,8 +8,8 @@ import { router as authRouter } from './routes/auth.js'
 import { router as apiRouter } from './routes/api.js'
 import { router as eventsRouter } from './routes/events.js'
 import { router as reviewsRouter } from './routes/reviews.js'
-
-import('./config/database.js')
+import { router as favoritesRouter } from './routes/favorites.js'
+import ('./config/database.js')
 
 const app = express()
 
@@ -23,12 +23,12 @@ app.use('/api/api', apiRouter)
 app.use('/api/events', eventsRouter)
 app.use('/api/reviews', reviewsRouter)
 
-app.use(function (req, res, next) {
-  res.status(404).json({ err: "Not found" })
+app.use(function(req, res, next) {
+    res.status(404).json({ err: "Not found" })
 })
 
-app.use(function (err, req, res, next) {
-  res.status(err.status || 500).json({ err: err.message })
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500).json({ err: err.message })
 })
 
 export { app }
