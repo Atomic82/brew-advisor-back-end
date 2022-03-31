@@ -17,8 +17,7 @@ function getBreweries(req, res){
 }
 
 function getSingleBrewery(req, res){
-  const brewery_id = req.body.id
-  console.log('mic check')
+  let brewery_id = req.body.brewery
   return fetch(`${BASE_URL}/${brewery_id}`, {
     headers: {
       'Authorization': `Bearer ${BEARER}`
