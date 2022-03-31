@@ -30,7 +30,7 @@ function create (req, res) {
           profile.save()
           .then(populatedProfile => {
             
-            res.status(201).json(populatedProfile)
+            res.status(201).json(finalReview)
           })
           .catch(err => {
             console.log(err)
