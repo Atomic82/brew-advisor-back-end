@@ -22,6 +22,7 @@ app.use('/api/auth', authRouter)
 app.use('/api/api', apiRouter)
 app.use('/api/events', eventsRouter)
 app.use('/api/reviews', reviewsRouter)
+app.use('/api/favorites', favoritesRouter)
 
 app.use(function(req, res, next) {
     res.status(404).json({ err: "Not found" })

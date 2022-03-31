@@ -1,5 +1,6 @@
 import { Router } from 'express'
-import * as eventsCtrl from '../controllers/events.js'
+import * as favoritesCtrl from '../controllers/favorites.js'
+import { decodeUserFromToken, checkAuth } from '../middleware/auth.js'
 
 const router = Router()
 
@@ -10,7 +11,6 @@ const router = Router()
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
 router.get('/', checkAuth, favoritesCtrl.create)
-router.get('/', checkAuth, profilesCtrl.index)
-router.get('/:id', checkAuth, profilesCtrl.show)
+
 
 export { router }
