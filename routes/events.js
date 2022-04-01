@@ -13,6 +13,7 @@ router.use(decodeUserFromToken)
 router.post('/', checkAuth, eventsCtrl.create)
 router.put('/:id', checkAuth, eventsCtrl.update)
 router.delete('/:id', checkAuth, eventsCtrl.delete)
+router.post('/addComment', checkAuth, eventsCtrl.addComment)
 
 export {
   router

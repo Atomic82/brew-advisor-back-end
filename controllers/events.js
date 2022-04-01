@@ -61,11 +61,33 @@ function deleteEvent(req, res) {
   .then(event => res.json(event))
   .catch(err => res.json(err))
 }
+function addComment(req, res) {
+  req.body.owner = req.user.profile
+  console.log(req.body)
+  Event.findById(req.params.id)
+    .then(event => {
+      event.comments.push(req.body)
+      event.save()
+      .then(updatedEvent => {
+        res.json(updatedEvent)
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json(err)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json
+    })
+}
+
 
 export {
   index,
   create,
   show,
   update,
-  deleteEvent as delete
+  deleteEvent as delete,
+  addComment
 }
