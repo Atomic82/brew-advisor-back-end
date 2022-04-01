@@ -13,7 +13,6 @@ function index(req, res) {
 }
 
 function create(req, res) {
-  console.log(req.body)
   req.body.owner = req.user.profile
   Event.create(req.body)
     .then(event => {
@@ -63,7 +62,6 @@ function deleteEvent(req, res) {
 }
 function addComment(req, res) {
   req.body.owner = req.user.profile
-  console.log(req.body)
   Event.findById(req.params.id)
     .then(event => {
       event.comments.push(req.body)
