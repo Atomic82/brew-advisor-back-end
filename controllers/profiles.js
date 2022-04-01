@@ -16,7 +16,6 @@ function show(req, res) {
   .populate("reviews")
   .populate("favorites")
   .populate("events")
-  console.log("A list of reviews: ", profile.reviews)
   .then(profile => res.json(profile))
   .catch(err => {
     console.log(err)
